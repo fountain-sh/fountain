@@ -30,3 +30,7 @@ dependencies {
     api project(":api")
     checkstyle "com.puppycrawl.tools:checkstyle:10.7.0"
 }
+
+javadoc {
+   enabled false
+}
