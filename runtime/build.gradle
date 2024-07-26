@@ -24,7 +24,7 @@ repositories {
 dependencies {
     compileOnly "io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT"
     testImplementation "io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT"
-    api project(":api")
+    api project(":fountain.api")
     api "org.reflections:reflections:0.10.2"
     implementation "org.apache.commons:commons-lang3:3.15.0"
     implementation "com.google.guava:guava:33.2.1-jre"

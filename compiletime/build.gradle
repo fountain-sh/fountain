@@ -27,7 +27,7 @@ dependencies {
     implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2"
     implementation "com.fasterxml.jackson.core:jackson-databind:2.14.2"
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.14.2"
-    api project(":api")
+    api project(":fountain.api")
     checkstyle "com.puppycrawl.tools:checkstyle:10.7.0"
 }
 

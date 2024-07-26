@@ -1,4 +1,9 @@
-rootProject.name = "Fountain"
+rootProject.name = "fountain"
+
 include "api"
 include "compiletime"
 include "runtime"
+
+rootProject.children.each { subproject ->
+    subproject.name = "${subproject.parent.name}.${subproject.name}"
+}
