@@ -1,0 +1,5 @@
+models:
+  - model:
+     value: 10
+  - model:
+     value: 20

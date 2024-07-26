@@ -1,0 +1,15 @@
+*
+!.gitignore
+
+!fountain
+!fountain/**
+!config
+!config/**
+!plugin
+!plugin/**
+
+!.gitlab-ci.yml
+!settings.gradle
+!CHANGELOG.md
+!README.md
+!gradle.properties

@@ -1,0 +1,4 @@
+map:
+  myKey:
+    model:
+      value: 42

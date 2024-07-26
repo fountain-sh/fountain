@@ -1,0 +1,32 @@
+plugins {
+    id "java-library"
+    id "checkstyle"
+    id "com.palantir.git-version" version "0.15.0"
+}
+
+group = "sh.fountain"
+
+def gitInfo =  versionDetails()
+version = gitInfo.isCleanTag ? gitInfo.lastTag.replaceAll("^v", "") : "${gitInfo.branchName}-SNAPSHOT"
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://repo.papermc.io/repository/maven-public/"
+    }
+    maven {
+        url "https://hub.spigotmc.org/nexus/content/repositories/snapshots"
+    }
+}
+
+dependencies {
+    implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2"
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.14.2"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.14.2"
+    api project(":api")
+    checkstyle "com.puppycrawl.tools:checkstyle:10.7.0"
+}

@@ -1,0 +1,74 @@
+plugins {
+    id "java-library"
+    id "checkstyle"
+    id "jacoco"
+    id "com.palantir.git-version" version "0.15.0"
+}
+
+group = "sh.fountain"
+
+def gitInfo =  versionDetails()
+version = gitInfo.isCleanTag ? gitInfo.lastTag.replaceAll("^v", "") : "${gitInfo.branchName}-SNAPSHOT"
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://repo.papermc.io/repository/maven-public/"
+    }
+}
+
+dependencies {
+    compileOnly "io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT"
+    testImplementation "io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT"
+    api project(":api")
+    api "org.reflections:reflections:0.10.2"
+    implementation "org.apache.commons:commons-lang3:3.15.0"
+    implementation "com.google.guava:guava:33.2.1-jre"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:5.10.3"
+    testImplementation "org.mockito:mockito-core:5.12.0"
+    checkstyle "com.puppycrawl.tools:checkstyle:10.17.0"
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+      events "passed", "skipped", "failed"
+
+      showExceptions true
+      exceptionFormat "full"
+      showCauses true
+      showStackTraces true
+
+      showStandardStreams = false
+    }
+
+    reports {
+        junitXml.required = true
+    }
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+    }
+}
+
+
+javadoc {
+    options {
+        links "https://jd.papermc.io/paper/1.19/"
+        links "https://jd.adventure.kyori.net/api/4.12.0/"
+        links "https://jd.citizensnpcs.co/"
+        links "https://jd-v2.essentialsx.net/"
+        links "https://docs.enginehub.org/javadoc/com.sk89q.worldguard/worldguard-bukkit/release/"
+        links "https://docs.enginehub.org/javadoc/com.sk89q.worldedit/worldedit-bukkit/release/"
+        links "http://milkbowl.github.io/VaultAPI/"
+        links "https://javadoc.io/doc/net.luckperms/api/latest/"
+        links "http://ronmamo.github.io/reflections/"
+    }
+}
