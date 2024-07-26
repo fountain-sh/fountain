@@ -1,0 +1,11 @@
+name: continous integration
+on:
+  - push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: gradle:8.1-jdk17
+    steps:
+      - uses: actions/checkout@main
+      - name: Run Gradle
+        run: gradle build javadoc
