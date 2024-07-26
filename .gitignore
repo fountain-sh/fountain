@@ -1,14 +1,16 @@
 *
 !.gitignore
 
-!fountain
-!fountain/**
+!api
+!api/**
+!compiletime
+!compiletime/**
 !config
 !config/**
-!plugin
-!plugin/**
+!runtime
+!runtime/**
 
-!.gitlab-ci.yml
+!LICENSE
 !settings.gradle
 !CHANGELOG.md
 !README.md

@@ -2,7 +2,6 @@
 !.gitignore
 
 !build.gradle
-!pom.xml
 
 !src
 !src/**
