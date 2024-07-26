@@ -11,7 +11,7 @@ import java.util.List;
 public class DefaultUnhandledExceptionStrategy implements UnhandledExceptionStrategy {
 
     private static final Component INTERNAL_ERROR_MESSAGE = ErrorComponent
-            .text("Ein interner Fehler bei der Ausführung des Kommandos ist aufgetreten.");
+            .text("An internal error has occurred.");
 
     @Override
     public void handleException(CommandSender sender, String commandName, List<String> args, Throwable exception) {

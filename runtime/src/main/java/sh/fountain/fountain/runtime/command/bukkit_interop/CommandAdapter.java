@@ -18,10 +18,10 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class CommandAdapter implements CommandExecutor, TabCompleter {
-    private static final Component SYNTAX_ERROR_MESSAGE = ErrorComponent.text("Kommando ungültig! Verwendung:")
+    private static final Component SYNTAX_ERROR_MESSAGE = ErrorComponent.text("Command invalid! Usage:")
             .color(NamedTextColor.RED);
     private static final Component AUTHORIZATION_ERROR_MESSAGE = ErrorComponent
-            .text("Du bist nicht berechtigt dieses Kommando auszuführen!").color(NamedTextColor.RED);
+            .text("You are not authorized to use this command!").color(NamedTextColor.RED);
 
     private final CommandModel command;
     private final UnhandledExceptionStrategy exceptionStrategy;
@@ -43,9 +43,9 @@ public class CommandAdapter implements CommandExecutor, TabCompleter {
             sender.sendMessage(AUTHORIZATION_ERROR_MESSAGE);
 
         } catch (NoSuchPlayerException exception) {
-            final var errorMessage = ErrorComponent.text("Spieler ")
+            final var errorMessage = ErrorComponent.text("Player ")
                     .append(Component.text(exception.badArg).color(NamedTextColor.DARK_AQUA))
-                    .append(ErrorComponent.text(" konnte nicht gefunden werden!"));
+                    .append(ErrorComponent.text(" could not be found!"));
 
             sender.sendMessage(errorMessage);
 

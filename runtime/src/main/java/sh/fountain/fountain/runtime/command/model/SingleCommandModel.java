@@ -45,7 +45,7 @@ public record SingleCommandModel(
 
         if (isDeprecated) {
             sender.sendMessage(
-                    ErrorComponent.text("Dieses Kommando ist veraltet und sollte nicht mehr benutzt werden"));
+                    ErrorComponent.text("This command has been deprecated and should not be used anymore"));
         }
 
         final var parsedArgs = new ArrayList<>();
