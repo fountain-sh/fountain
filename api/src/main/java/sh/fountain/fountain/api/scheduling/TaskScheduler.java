@@ -1,9 +1,8 @@
 package sh.fountain.fountain.api.scheduling;
 
-import sh.fountain.fountain.api.dependency_injection.Injectable;
-
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.scheduler.BukkitWorker;
+import sh.fountain.fountain.api.dependency_injection.Injectable;
 
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -11,6 +10,14 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Future;
 import java.util.function.Consumer;
 
+/**
+ * An object to schedule tasks for this plugin.
+ * <p>
+ * Compared to {@link org.bukkit.scheduler.BukkitScheduler}, this class already has the plugin reference injected
+ * for all applicable functions.
+ * </p>
+ * For documentation on the methods, see {@link org.bukkit.scheduler.BukkitScheduler}.
+ */
 @Injectable
 public interface TaskScheduler {
     int scheduleSyncDelayedTask(Runnable task, long delay);
