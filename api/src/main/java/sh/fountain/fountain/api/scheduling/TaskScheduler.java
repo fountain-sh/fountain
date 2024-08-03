@@ -1,8 +1,8 @@
 package sh.fountain.fountain.api.scheduling;
 
+import sh.fountain.fountain.api.dependency_injection.Injectable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.scheduler.BukkitWorker;
-import sh.fountain.fountain.api.dependency_injection.Injectable;
 
 import java.util.List;
 import java.util.concurrent.Callable;
