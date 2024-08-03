@@ -1,5 +1,8 @@
 package sh.fountain.fountain.api.plugin;
 
+/**
+ * Minecraft API version
+ */
 public enum ServerApiVersion {
     v1_13("1.13"),
     v1_14("1.14"),

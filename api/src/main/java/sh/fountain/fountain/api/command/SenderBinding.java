@@ -8,7 +8,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Marks a command handlers argument to be intialized with the commands {@link CommandSender}
+ * Marks a command handlers argument to be initialized with the command's {@link CommandSender}
  */
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)

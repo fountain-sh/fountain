@@ -2,7 +2,7 @@ package sh.fountain.fountain.api.config;
 
 import sh.fountain.fountain.api.dependency_injection.Injectable;
 
-/*
+/**
  * An object to load and parse config files
  */
 @Injectable
