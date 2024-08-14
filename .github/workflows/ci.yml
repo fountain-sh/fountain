@@ -1,11 +1,18 @@
-name: continous integration
+name: continuous integration
 on:
   - push
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: gradle:8.1-jdk17
     steps:
       - uses: actions/checkout@main
-      - name: Run Gradle
-        run: gradle build javadoc
+      - name: Fix worktree ownership
+        uses: docker://nixos/nix:2.24.2
+        with:
+          args: chown root ./ -R
+      - name: Run gradle
+        uses: docker://nixos/nix:2.24.2
+        with:
+          args: nix develop --command gradle build javadoc
+        env:
+          NIX_CONFIG: extra-experimental-features = flakes nix-command
