@@ -1,5 +1,16 @@
 package sh.fountain.fountain.api.plugin_actions;
 
+/**
+ * Defines an action to be run when the plugin is enabled by Paper.
+ *  *
+ *  * @see <a href="https://docs.papermc.io/paper/dev/how-do-plugins-work#plugin-lifecycle">Paper Plugin Lifecycle</a>
+ *  */
 public interface PluginEnableAction {
+
+    /**
+     * Method run when the plugin is enabled
+     *
+     * @throws Exception wraps any exception thrown by contained code
+     */
     void onPluginEnable() throws Exception;
 }
